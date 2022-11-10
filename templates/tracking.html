@@ -1,0 +1,28 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+    <div class="container">
+      <h3>Check out tracking</h3>
+      <hr>
+      <form action="" method="post" class="form" role="form">
+        {{ form.csrf }}
+
+        <div class="row">
+          <div class="form-group col-md-6">
+            {{ wtf.form_field(form.tracking_number, class='form-control') }}
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <hr>
+      {% if response %}
+          <div class="response">
+              <pre>{{ response }}</pre>
+          </div>
+      {% endif %}
+    </div>
+
+{% endblock %}
